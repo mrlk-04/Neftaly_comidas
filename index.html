@@ -42,7 +42,7 @@ Bootstrap 5 HTML CSS Template
                 <nav class="navbar navbar-expand-lg">                
                     <div class="container">
                         <a class="navbar-brand d-flex align-items-center" href="index.html">
-                            <img src="images/coffee-beans.png" class="navbar-brand-image img-fluid" alt="Barista Cafe Template">
+                            <img style="border-radius: 1000px; width: 60px; height: auto; padding-right: 1.5%;" src="images/logopng.png" class="img-fluid" alt="Barista Cafe Template">
                             Neftaly comidas
                         </a>
         
@@ -83,6 +83,47 @@ Bootstrap 5 HTML CSS Template
                         </div>
                     </div>
                 </nav>
+
+                <div style="position: fixed; top: 30%; right: 70%; display: flex; gap: 10px; z-index: 1000;">
+                    <a href="https://wa.me/573234352345" 
+                       style="background-color: rgb(32, 204, 32); width: auto; height: auto; color: white; padding: 10px 15px; border-radius: 100px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 5px;">
+                        Haz tu pedido aqui!
+                        <img src="images/imgwhastapp.png" alt="logoWhatsApp" style="width: 30px; height: 30px; border-radius: 100px;">
+                    </a>
+                    
+                    <a href="#section_3"
+                    style="background-color: yellow; width:auto; height: auto; color: black; padding: 10px 15px; border-radius: 100px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 5px;"
+                    onclick="smoothScroll(event, 'section_3')">
+                     Cartas ☰
+                 </a>
+                 
+                 <script>
+                     function smoothScroll(event, sectionId) {
+                         event.preventDefault();
+                         const targetElement = document.getElementById(sectionId);
+                         if (!targetElement) return;
+                 
+                         const startPosition = window.scrollY;
+                         const targetPosition = targetElement.getBoundingClientRect().top + startPosition;
+                         const startTime = performance.now();
+                         const duration = 300; // 0.3 segundos
+                 
+                         function animation(currentTime) {
+                             const elapsedTime = currentTime - startTime;
+                             const progress = Math.min(elapsedTime / duration, 1);
+                             window.scrollTo(0, startPosition + (targetPosition - startPosition) * progress);
+                             if (progress < 1) {
+                                 requestAnimationFrame(animation);
+                             }
+                         }
+                 
+                         requestAnimationFrame(animation);
+                     }
+                 </script>
+                 
+                 
+                </div>
+                
 
 
                 <section class="hero-section d-flex justify-content-center align-items-center" id="section_1">
@@ -186,10 +227,10 @@ Bootstrap 5 HTML CSS Template
                                         <div class="d-flex mt-auto mb-3">
                                             <h4 class="text-white mb-0">Mildeidys</h4>
 
-                                            <p class="badge ms-4"><em>Manager</em></p>
+                                            <p class="badge ms-4"><em>Administradora</em></p>
                                         </div>
 
-                                        <p class="text-white mb-0">your favourite coffee daily lives.</p>
+                                        <p class="text-white mb-0">La administradora que duerme mas</p>
                                     </div>
 
                                     <div class="team-block-image-wrap">
@@ -238,6 +279,39 @@ Bootstrap 5 HTML CSS Template
                     </div>
                 </section>
 
+<!-- secion de la ruleta (seccion4) -->
+
+
+
+<section class="reviews-section section-padding section-bg" id="section_4">
+    <div class="container">
+        <h1 style="color: #ffffff; font-size: 36px; font-weight: bold; text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);">
+            🎯 ¡TIRA LA RULETA! 🎯 <img style="border-radius: 100px; width: 5%; height: auto;" src="images/ruletagif1.gif" alt="gif ruleta">
+        </h1>
+        <p style="color: #ffffff; font-size: 20px; font-weight: bold;">
+            🔄 Gira y obtén <span style="color: #09ff09;">descuentos</span> en tu compra.  
+            ¡Prueba tu suerte ahora! 🍔🍟🥤
+        </p>
+
+        <img style="width: 50%; height: auto;" src="images/proximamente.png" alt="imgproximamente">
+       
+            
+    </div>
+</section> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
                 <section class="menu-section section-padding" id="section_3">
                     <div class="container">
@@ -269,174 +343,39 @@ Bootstrap 5 HTML CSS Template
                 </section>
 
 
-                <section class="reviews-section section-padding section-bg" id="section_4">
-                    <div class="container">
-                        <div class="row justify-content-center">
-
-                            <div class="col-lg-12 col-12 text-center mb-4 pb-lg-2">
-                                <em class="text-white">Reviews by Customers</em>
-
-                                <h2 class="text-white">Testimonials</h2>
-                            </div>
-
-                            <div class="timeline">
-                                <div class="timeline-container timeline-container-left">
-                                    <div class="timeline-content">
-                                        <div class="reviews-block">
-                                            <div class="reviews-block-image-wrap d-flex align-items-center">
-                                                <img src="images/reviews/young-woman-with-round-glasses-yellow-sweater.jpg" class="reviews-block-image img-fluid" alt="">
-
-                                                <div class="">
-                                                    <h6 class="text-white mb-0">Sandra</h6>
-                                                    <em class="text-white"> Customers</em>
-                                                </div>
-                                            </div>
-
-                                            <div class="reviews-block-info">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
-                                                <div class="d-flex border-top pt-3 mt-4">
-                                                    <strong class="text-white">4.5 <small class="ms-2">Rating</small></strong>
-
-                                                    <div class="reviews-group ms-auto">
-                                                        <i class="bi-star-fill"></i>
-                                                        <i class="bi-star-fill"></i>
-                                                        <i class="bi-star-fill"></i>
-                                                        <i class="bi-star-fill"></i>
-                                                        <i class="bi-star"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="timeline-container timeline-container-right">
-                                    <div class="timeline-content">
-                                        <div class="reviews-block">
-                                            <div class="reviews-block-image-wrap d-flex align-items-center">
-                                                <img src="images/reviews/senior-man-white-sweater-eyeglasses.jpg" class="reviews-block-image img-fluid" alt="">
-
-                                                <div class="">
-                                                    <h6 class="text-white mb-0">Don</h6>
-                                                    <em class="text-white"> Customers</em>
-                                                </div>
-                                            </div>
-
-                                            <div class="reviews-block-info">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
-                                                <div class="d-flex border-top pt-3 mt-4">
-                                                    <strong class="text-white">4.5 <small class="ms-2">Rating</small></strong>
-
-                                                    <div class="reviews-group ms-auto">
-                                                        <i class="bi-star-fill"></i>
-                                                        <i class="bi-star-fill"></i>
-                                                        <i class="bi-star-fill"></i>
-                                                        <i class="bi-star-fill"></i>
-                                                        <i class="bi-star"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="timeline-container timeline-container-left">
-                                    <div class="timeline-content">
-                                        <div class="reviews-block">
-                                            <div class="reviews-block-image-wrap d-flex align-items-center">
-                                                <img src="images/reviews/young-beautiful-woman-pink-warm-sweater-natural-look-smiling-portrait-isolated-long-hair.jpg" class="reviews-block-image img-fluid" alt="">
-
-                                                <div class="">
-                                                    <h6 class="text-white mb-0">Olivia</h6>
-                                                    <em class="text-white"> Customers</em>
-                                                </div>
-                                            </div>
-
-                                            <div class="reviews-block-info">
-                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-
-                                                <div class="d-flex border-top pt-3 mt-4">
-                                                    <strong class="text-white">4.5 <small class="ms-2">Rating</small></strong>
-
-                                                    <div class="reviews-group ms-auto">
-                                                        <i class="bi-star-fill"></i>
-                                                        <i class="bi-star-fill"></i>
-                                                        <i class="bi-star-fill"></i>
-                                                        <i class="bi-star-fill"></i>
-                                                        <i class="bi-star"></i>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </section>
-
 
                 <section class="contact-section section-padding" id="section_5">
                     <div class="container">
                         <div class="row">   
-
-                            <div class="col-lg-12 col-12">
+                            <!-- Columna izquierda con el botón y el video -->
+                            <div class="col-lg-6 col-12 text-center">
                                 <a href="https://www.google.com/maps/dir//Cl+37+%2315-20,+Marcisa,+Sincelejo,+Sucre/@9.2872122,-75.3962166,765m/data=!3m1!1e3!4m18!1m8!3m7!1s0x8e591455d7fa61d9:0xb2b59dd15b6969ba!2sCl+37+%2315-20,+Marcisa,+Sincelejo,+Sucre!3b1!8m2!3d9.2872122!4d-75.3936417!16s%2Fg%2F11w7qy6ymj!4m8!1m0!1m5!1m1!1s0x8e591455d7fa61d9:0xb2b59dd15b6969ba!2m2!1d-75.3936417!2d9.2872122!3e4?hl=es&entry=ttu&g_ep=EgoyMDI1MDMxMi4wIKXMDSoASAFQAw%3D%3D" 
                                 style="display: inline-block; background: linear-gradient(135deg, #007bff, #0056b3); 
                                        color: white; padding: 12px 24px; border-radius: 50px; 
                                        text-decoration: none; font-size: 18px; font-weight: bold; 
                                        text-align: center; transition: all 0.3s ease-in-out; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
                                  ¿Cómo llegar?
-                                 
-                             </a>
-                             <img src="images/flecharoja1.gif" 
-                             alt="Ubicación" 
-                             style="width: 80px; height: 80px; border-radius: 10px;">
+                                </a>
+                                <img src="images/flecharoja1.gif" alt="Ubicación" style="width: 50px; height: 50px; border-radius: 100px;">
+
+                
+                                <br><br>
+                
+                                <!-- Video debajo del botón -->
+                                <video width="60%" height="50%" autoplay loop muted playsinline style="border-radius: 10px;">
+                                    <source src="images/video1negocio.mp4" type="video/mp4">
+                                    Tu navegador no soporta el video.
+                                </video>
                             </div>
-
-                            <div class="col-lg-6 col-12">
-                                <form action="#" method="post" class="custom-form contact-form" role="form">
-
-                                <div class="row">
-                                    
-                                    <div class="col-lg-6 col-12">
-                                        <label for="name" class="form-label">Name <sup class="text-danger">*</sup></label>
-
-                                        <input type="text" name="name" id="name" class="form-control" placeholder="Jackson" required="">
-                                    </div>
-
-                                    <div class="col-lg-6 col-12">
-                                        <label for="email" class="form-label">Email Address</label>
-
-                                        <input type="email" name="email" id="email" pattern="[^ @]*@[^ @]*" class="form-control" placeholder="Jack@gmail.com" required="">
-                                    </div>
-
-                                    <div class="col-12">
-                                        <label for="message" class="form-label">How can we help?</label>
-
-                                        <textarea name="message" rows="4" class="form-control" id="message" placeholder="Message" required=""></textarea>
-                                        
-                                    </div>
-                                </div>
-
-
-                            </form>
+                
+                            <!-- Columna derecha con el mapa -->
+                            <div class="col-lg-6 col-12 mx-auto mt-5 mt-lg-0 ps-lg-5"> <br><br><br>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3332.5353656136867!2d-75.3962166258142!3d9.287212190784773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e591455d7fa61d9%3A0xb2b59dd15b6969ba!2sCl%2037%20%2315-20%2C%20Marcisa%2C%20Sincelejo%2C%20Sucre!5e1!3m2!1ses!2sco!4v1742178153653!5m2!1ses!2sco" width="100%" height="300" style="border:0; border-radius: 10px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                             </div>
-
-                            <div class="col-lg-6 col-12 mx-auto mt-5 mt-lg-0 ps-lg-5">
-                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3332.5353656136867!2d-75.3962166258142!3d9.287212190784773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e591455d7fa61d9%3A0xb2b59dd15b6969ba!2sCl%2037%20%2315-20%2C%20Marcisa%2C%20Sincelejo%2C%20Sucre!5e1!3m2!1ses!2sco!4v1742178153653!5m2!1ses!2sco" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                            </div>
-                            
-                            
-                            
-                            
-
                         </div>
                     </div>
                 </section>
+                
 
 
                 <footer class="site-footer">
@@ -499,6 +438,13 @@ Bootstrap 5 HTML CSS Template
                                         <span class="underline"></span>
 
                                         <strong>4:30 - 11:30</strong>
+                                    </li>
+
+                                    <li class="d-flex">
+                                        Festivos
+                                        <span class="underline"></span>
+
+                                        <strong>4:30-11:00</strong>
                                     </li>
 
                                     <li class="d-flex">
