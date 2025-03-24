@@ -222,7 +222,7 @@ Bootstrap 5 HTML CSS Template
                                 <div class="team-block-wrap">
                                     <div class="team-block-info d-flex flex-column">
                                         <div class="d-flex mt-auto mb-3">
-                                            <h4 class="text-white mb-0">Mildeidys</h4>
+                                            <h4 class="text-white mb-0">Mileidys</h4>
 
                                             <p class="badge ms-4"><em>Administradora</em></p>
                                         </div>
@@ -283,11 +283,13 @@ Bootstrap 5 HTML CSS Template
 <section class="reviews-section section-padding section-bg" id="section_4">
     <div class="container" style="text-align: center;">
       <h1 style="color: #ffffff; font-size: 36px; font-weight: bold; text-shadow: 2px 2px 5px rgba(0,0,0,0.3);">
-        🎯 ¡TIRA LA RULETA! 🎯 
+        🎯 ¡TIRA LA RULETA! 🎯
       </h1>
       <p style="color: #ffffff; font-size: 20px; font-weight: bold;">
         Por compras superiores a 20mil🔄 Gira y obtén <span style="color: #09ff09;">descuentos</span> 🍔🍟🥤
-      </p>
+        <br> Si la ruleta resulta: <img style="padding-bottom: 3%;" src="images/demostracion.PNG" alt="demostracion"> = ninguna opcion
+        <br>
+    </p>
   
       <div class="ruleta-container">
         <div class="flecha"></div>
@@ -298,9 +300,8 @@ Bootstrap 5 HTML CSS Template
   
       <div id="codigo-container" style="display: none; margin-top: 15px;">
         <input type="text" id="codigo" placeholder="Ingresa tu código" style="padding: 5px; font-size: 16px;">
-        <button id="validar-codigo" style="padding: 5px 10px; font-size: 16px;">✔️ Validar</button>
-      
-    </div>
+        <button id="validar-codigo" style="padding: 5px 10px; font-size: 16px;">✔️Girar🔄</button>
+      </div>
   
       <p id="resultado" style="color: white; font-size: 22px; margin-top: 15px; font-weight: bold;"></p>
     </div>
@@ -312,7 +313,11 @@ Bootstrap 5 HTML CSS Template
       width: 300px;
       height: 300px;
       margin: 20px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
+  
     .ruleta {
       width: 100%;
       height: 100%;
@@ -331,12 +336,11 @@ Bootstrap 5 HTML CSS Template
       );
       transition: transform 0s;
     }
-
-    
+  
     .flecha {
       z-index: 1000;
       position: absolute;
-      top: -0px;
+      top: -20px;
       left: 50%;
       transform: translateX(-50%);
       width: 0;
@@ -345,91 +349,100 @@ Bootstrap 5 HTML CSS Template
       border-right: 20px solid transparent;
       border-top: 40px solid rgb(131, 127, 127);
     }
-
-    /* Estilos para los textos de cada segmento */
+  
     .texto-segmento {
       font-weight: bold;
       position: absolute;
-      top: 50%;
+      top: 135px; 
       left: 50%;
-      transform-origin: center;
       font-size: 12px;
       color: rgb(0, 0, 0);
       pointer-events: none;
+      transform: translateX(-50%);
     }
   </style>
   
   <script>
-    let anguloActual = 0;
-    let codigosValidos = ["19291485772", "11525300789"]; // Códigos válidos
-  
-    // Array de textos personalizados para cada uno de los 16 segmentos.
-    let textosSegmentos = [
-      "😞", "2x1", "😞",
-      "80%", "😞", "50%", "😞",
-      "Nada", "😞", "10%", "😞",
-      "20%", "😞", "5%", "😞","Nada"
-    ];
-  
-    document.addEventListener("DOMContentLoaded", function() {
-      let ruleta = document.getElementById("ruleta");
-      let numSegmentos = 16;
-      let anguloPorSegmento = 360 / numSegmentos;
-      for (let i = 0; i < numSegmentos; i++) {
+
+document.addEventListener("DOMContentLoaded", function () {
+    let ruleta = document.getElementById("ruleta");
+    let numSegmentos = 16;
+    let anguloPorSegmento = 360 / numSegmentos;
+    let radioRuleta = 120;
+
+    let s = ["😞1", "2x1", "😞2", "80%", "😞3", "15%", "😞4", "Nada1",
+             "😞5", "10%", "😞6", "20%", "😞7", "5%", "😞8", "Nada2"];
+
+    let codigosValidos = ["19291485772", "11525300789"];
+
+    for (let i = 0; i < numSegmentos; i++) {
         let div = document.createElement("div");
-        div.className = "texto-segmento";
-        div.innerText = textosSegmentos[i];
-        // Calcula el ángulo central de cada sector.
+        div.className = "segmento";
+        let texto = document.createElement("div");
+        texto.className = "texto-segmento";
+        texto.innerText = s[i];
+        div.appendChild(texto);
+
         let angulo = i * anguloPorSegmento + anguloPorSegmento / 2;
-        // Orden de transformación:
-        // 1. translate(-50%, -50%) centra el elemento en (50%,50%) de la ruleta.
-        // 2. rotate(angulo) rota el sistema de coordenadas.
-        // 3. translate(100px) mueve el texto hacia afuera desde el centro.
-        // 4. rotate(-angulo) contrarota el texto para que se muestre horizontal.
-        div.style.transform = `translate(-50%, -50%) rotate(${angulo}deg) translate(100px) rotate(-${angulo}deg)`;
+        div.style.transform = `rotate(${angulo}deg) translate(${radioRuleta}px) rotate(-${angulo}deg)`;
         ruleta.appendChild(div);
-      }
+    }
+
+    function calcularGiroForzado() {
+    let valoresDeseados = ["2x1","80%", "15%", "Nada1", "10%", "20%", "5%", "Nada2","😞3","😞7"];
+    
+    // Filtrar índices de los valores deseados en la ruleta
+    let indicesPosibles = s
+        .map((valor, i) => valoresDeseados.includes(valor) ? i : -1)
+        .filter(i => i !== -1);
+    
+    if (indicesPosibles.length === 0) {
+        console.error("No se encontraron los valores en la ruleta.");
+        return 0;
+    }
+
+    // Elegir un índice aleatorio de los posibles
+    let indiceAleatorio = indicesPosibles[Math.floor(Math.random() * indicesPosibles.length)];
+
+    return (360 / numSegmentos) * indiceAleatorio + (anguloPorSegmento / 2);
+}
+
+
+
+    document.getElementById("girar").addEventListener("click", function () {
+        document.getElementById("codigo-container").style.display = "block";
     });
-  
-    document.getElementById("girar").addEventListener("click", function() {
-      document.getElementById("codigo-container").style.display = "block";
-    });
-  
-    document.getElementById("validar-codigo").addEventListener("click", function() {
-      let codigoInput = document.getElementById("codigo");
-      let codigo = codigoInput.value.trim();
-      if (!codigosValidos.includes(codigo)) {
-        alert("❌ Código inválido. Inténtalo de nuevo.");
+
+    document.getElementById("validar-codigo").addEventListener("click", function () {
+        let codigoInput = document.getElementById("codigo");
+        let codigo = codigoInput.value.trim();
+
+        if (!codigosValidos.includes(codigo)) {
+            alert("❌ Código inválido. Inténtalo de nuevo.");
+            codigoInput.value = "";
+            return;
+        }
+
         codigoInput.value = "";
-        return;
-      }
-      codigoInput.value = "";
-      document.getElementById("codigo-container").style.display = "none";
-  
-      let ruleta = document.getElementById("ruleta");
-      let vueltas = 15;
-      let extraGiro = Math.random() * 360;
-      let giroFinal = vueltas * 360 + extraGiro;
-      let duracion = 30;
-  
-      anguloActual += giroFinal;
-      ruleta.style.transition = "none";
-      ruleta.style.transform = `rotate(${anguloActual}deg)`;
-  
-      setTimeout(() => {
+        document.getElementById("codigo-container").style.display = "none";
+
+        let giroFinal = calcularGiroForzado();
+        let vueltas = 10;
+        let duracion = 12;
+
         ruleta.style.transition = `transform ${duracion}s cubic-bezier(0.1, 1, 0.3, 1)`;
-        ruleta.style.transform = `rotate(${anguloActual + giroFinal}deg)`;
-        anguloActual += giroFinal;
-      }, 10);
+        ruleta.style.transform = `rotate(${360 * vueltas + giroFinal}deg)`;
+
+        setTimeout(() => {
+            ruleta.style.transition = "none";
+            ruleta.style.transform = `rotate(${giroFinal}deg)`;
+        }, duracion * 1000);
     });
-  </script>
-  
+});
 
 
-
-
-
-
+    </script>
+     
 
 
 
@@ -460,7 +473,7 @@ Bootstrap 5 HTML CSS Template
                         </div>
                         
                         <!-- Nueva fila: visible en pantallas medianas (md) y grandes (lg) -->
-                        <div class="row d-md-flex d-none mt-4">
+                        <div class="row d-md-flex mt-4">
                             <div class="col-lg-6 col-md-12">
                                 <div class="menu-block-wrap">
                                     <img style="height: 30%; width: 89%;" src="images/carta2.webp" alt="carta3">
