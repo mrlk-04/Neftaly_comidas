@@ -668,7 +668,7 @@ strong {
 
 /*colorsito desvanecido*/
 .team-block-info {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(219, 207, 44, 0.548));
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.35), rgba(219, 207, 44, 0.473));
   position: absolute;
   z-index: 2;
   top: 0;
