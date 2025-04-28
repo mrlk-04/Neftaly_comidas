@@ -87,15 +87,6 @@ button, a {
   text-decoration: none; /* Opcional, pero mejora diseño limpio */
 }
 
-nav {
-  width: 80%;
-  max-width: 1200px; /* Opcional: limite máximo */
-  margin: 0 auto; /* Esto centra el nav horizontalmente */
-  padding: 10px 0; /* Un poco de espacio arriba y abajo */
-  display: flex;
-  justify-content: space-between; /* Ajusta tus elementos internos */
-  align-items: center;
-}
 
 
 
