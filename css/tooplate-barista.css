@@ -50,6 +50,61 @@ body {
 }
 
 
+
+
+
+
+/* --- Reseteo general para evitar desbordamientos --- */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip; /* Mejor que hidden, no bloquea scroll vertical */
+}
+
+/* --- Hacer que todos los elementos respeten los bordes y tamaños --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* --- Imágenes, videos e iframes adaptables --- */
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+  display: block; /* elimina espacios indeseados debajo */
+}
+
+/* --- Contenedores principales también controlados --- */
+.container, .section, .header, .footer {
+  width: 100%;
+  max-width: 100%;
+}
+
+/* --- Botones y enlaces seguros --- */
+button, a {
+  max-width: 100%;
+  text-decoration: none; /* Opcional, pero mejora diseño limpio */
+}
+
+nav {
+  width: 90%;
+  max-width: 1200px; /* Opcional: limite máximo */
+  margin: 0 auto; /* Esto centra el nav horizontalmente */
+  padding: 10px 0; /* Un poco de espacio arriba y abajo */
+  display: flex;
+  justify-content: space-between; /* Ajusta tus elementos internos */
+  align-items: center;
+}
+
+
+
+
+
+
+
+
+
 /*---------------------------------------
   TYPOGRAPHY               
 -----------------------------------------*/
