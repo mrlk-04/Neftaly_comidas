@@ -88,7 +88,7 @@ button, a {
 }
 
 nav {
-  width: 90%;
+  width: 80%;
   max-width: 1200px; /* Opcional: limite máximo */
   margin: 0 auto; /* Esto centra el nav horizontalmente */
   padding: 10px 0; /* Un poco de espacio arriba y abajo */
