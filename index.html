@@ -376,7 +376,7 @@ Bootstrap 5 HTML CSS Template
       position: absolute;
       top: 135px; 
       left: 50%;
-      font-size: 12px;
+      font-size: 15px;
       color: rgb(0, 0, 0);
       pointer-events: none;
       transform: translateX(-50%);
@@ -391,8 +391,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let anguloPorSegmento = 360 / numSegmentos;
     let radioRuleta = 120;
 
-    let s = ["😞1", "2x1", "😞2", "80%", "😞3", "50%", "😞4", "Nada1",
-             "😞5", "10%", "😞6", "20%", "😞7", "5%", "😞8", "Nada2"];
+    let s = ["😞", "2x1", "😟", "80%", "😫", "50%", "😭", "Nada1",
+             "😣", "10%", "😖", "20%", "☹️", "5%", "😕", "Nada2"];
 
     let codigosValidos = ["19291485772", "11525300789"];
 
@@ -410,7 +410,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function calcularGiroForzado() {
-    let valoresDeseados = ["2x1","80%", "50%", "Nada1", "10%", "20%", "5%", "Nada2","😞3","😞7","😞8"];
+    let valoresDeseados = ["2x1","80%", "50%", "Nada1", "10%", "20%", "5%", "Nada2","😫","☹️","😕"];
     
     // Filtrar índices de los valores deseados en la ruleta
     let indicesPosibles = s
